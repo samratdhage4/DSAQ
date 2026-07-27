@@ -74,6 +74,20 @@ public class Recursion {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
+
+    // revers an aaray
+
+    void revarr(int[] a,int start, int end)
+    {
+        if(start>end) return;
+
+        int temp=a[start];
+        a[start]=a[end];
+        a[end]=temp;
+
+        revarr(a, start+1, end-1);
+    }
+
     public static void main(String[] args) {
 
         Recursion f = new Recursion();
@@ -96,5 +110,15 @@ public class Recursion {
                 + f.palindrome(str, 0, str.length() - 1));
 
         System.out.println("\n6th Fibonacci Number: " + f.fibonacci(6));
+
+        int[] a={1,2,3,4,5,6,7,8,9};
+        int x=a.length-1;
+
+         f.revarr(a, 0, x);
+
+         for(int i=0;i<9;i++)
+        {
+            System.out.println(a[i]);
+        }
     }
 }
