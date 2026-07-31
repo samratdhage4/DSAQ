@@ -1,108 +1,70 @@
-/*Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
-
-A subarray is a contiguous non-empty sequence of elements within an array.
-
- 
-
-Example 1:
-
-Input: nums = [1,1,1], k = 2
-Output: 2
-Example 2:
-
-Input: nums = [1,2,3], k = 3
-Output: 2 */
-
 import java.util.HashMap;
 
-public class sub_array 
-{
-    int sub(int[] arr,int k)
-    {
-        int i;
-        int count=0;//calculate how many subarrays sum=k
+public class sub_array {
 
-        //prefix sum calculation 
-        //adding backs elemnt total in nows array 
+    int sub(int[] arr, int k) {
 
-        int[] pf=new int[arr.length];
+        int count = 0;
+        int sum = 0;
 
-        pf[0]=arr[0];
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-        for(i=1;i<arr.length;i++)
-        {
-            pf[i]=pf[i-1]+arr[i];
-        }
-        //calculated prefix sum of all values
-
-        HashMap<Integer,Integer> map=new HashMap<>();
-
+        // prefix sum 0 appears once
         map.put(0, 1);
 
-        for(i=0;i<arr.length;i++)
-        {
-            if(map.containsKey(pf[i]-k))
-            {
-                count+=map.get(pf[i]-k);
+        for (int i = 0; i < arr.length; i++) {
+
+            sum += arr[i];
+
+            // check if previous prefix sum = sum-k exists
+            if (map.containsKey(sum - k)) {
+                count += map.get(sum - k);
             }
 
-            map.put(pf[i], map.getOrDefault(pf[i],0)+1);
+            // store current prefix sum frequency
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
 
-
         return count;
-
-
-
-
     }
 
-    //GFG
-      public int longestSubarray(int[] arr, int k) {
-        
-        
-        
-        
-       
-        int sum=0;
-        int len=0;
-        
-        HashMap<Integer,Integer> map= new HashMap<>();
-        
-      
-      for(int i=0;i<arr.length;i++)
-      {
-          sum+=arr[i];
-          
-          if(sum==k)
-          {
-              len=i+1;
-            
-          }
-          
-          if(!map.containsKey(sum))
-          {
-              map.put(sum,i);
-          }
-          
-          if(map.containsKey(sum-k))
-          {
-              int ll=i-map.get(sum-k);
-              len=Math.max(len,ll);
-          }
-      }
-        
+
+    // GFG: Longest Subarray with Sum K
+    public int longestSubarray(int[] arr, int k) {
+
+        int sum = 0;
+        int len = 0;
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < arr.length; i++) {
+
+            sum += arr[i];
+
+            if (sum == k) {
+                len = i + 1;
+            }
+
+            if (!map.containsKey(sum)) {
+                map.put(sum, i);
+            }
+
+            if (map.containsKey(sum - k)) {
+                int ll = i - map.get(sum - k);
+                len = Math.max(len, ll);
+            }
+        }
+
         return len;
-        
     }
+
 
     public static void main(String[] args) {
-        
-        int[] a={1,1,1};
 
-        sub_array s= new sub_array();
+        int[] a = {1, 1, 1};
+
+        sub_array s = new sub_array();
 
         System.out.println(s.sub(a, 2));
     }
-    
 }
