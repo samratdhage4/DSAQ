@@ -26,7 +26,22 @@ public class shiftzero
             i++;
         }
     }
+
+    
        
+    }
+
+    public static void main(String[] args) {
+        
+        shiftzero s= new shiftzero();
+        int[] a={1,2,0,0,7,5,0};
+        s.moveZeroes(a);
+
+        for (int i = 0; i < a.length; i++) 
+        {
+            System.out.println(a[i]);
+            
+        }
     }
 }
     
