@@ -68,9 +68,6 @@ public class kadaneAlgo {
         int i=0;
         int j=0;
         System.out.println(k.maxSubArray(a,i,j));
-
-
-
     }
 
 }
