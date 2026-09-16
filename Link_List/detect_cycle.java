@@ -26,6 +26,7 @@ public class detect_cycle
             if(slow==fast)
             {
                 isCycle=true;
+                break;
             }
         }
 

@@ -7,7 +7,7 @@ public class bigWordsInString {
 
         String str=sc.nextLine();
 
-        String[] word=str.split("[    .]+");
+        String[] word=str.split("\\s+");
 
         int max=0;
         for(String s:word)

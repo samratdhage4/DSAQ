@@ -5,10 +5,9 @@ public class stk_using_Q {
     Queue<Integer> q = new LinkedList<>();
 
     void push(int x) {
-        q.add(x);
+        q.offer(x);
 
         int n = q.size();
-
         for (int i = 0; i < n - 1; i++) {
             q.offer(q.poll());
         }

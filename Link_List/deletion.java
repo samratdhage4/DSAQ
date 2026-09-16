@@ -115,7 +115,7 @@ public class deletion {
 
         while (temp.next.next != null) {
             temp = temp.next;
-        }
+        } 
 
         // Remove last node
         temp.next = null;

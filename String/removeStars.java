@@ -25,7 +25,7 @@ It can be shown that the resulting string will always be unique.
 
 Example 1:
 
-Input: s = "leet**cod*e"
+Input: s = "leset**cod*e"
 Output: "lecoe"
 Explanation: Performing the removals from left to right:
 - The closest character to the 1st star is 't' in "leet**cod*e". s becomes "lee*cod*e".
