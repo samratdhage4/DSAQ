@@ -25,13 +25,10 @@ public class LongSumLessK {
                 maxLen=Math.max(maxLen, r-l+1);
             }
             r++;
-
         }
-
         return maxLen;
    }  
    
-
    public static void main(String args[]) throws Exception
    {
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
