@@ -35,9 +35,9 @@ public class GCD_of_num
     public static void main(String[] args) 
     {
 
-        GCD_of_num g= new GCD_of_num();
+       
 
-        System.out.println(g.gcd(10, 20));
+        System.out.println(gcd(10, 20));
 
         
     }
