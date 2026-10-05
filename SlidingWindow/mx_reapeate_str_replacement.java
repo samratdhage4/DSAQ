@@ -40,8 +40,9 @@ public class mx_reapeate_str_replacement {
             
             if((i-l+1)-mf>k)
             {
-                map[s.charAt(i)-'A']--;
+                map[s.charAt(l)-'A']--;
                 mf=0;
+                l++;
             }
 
             if((i-l+1)-mf<=k)
@@ -51,11 +52,11 @@ public class mx_reapeate_str_replacement {
         }
 
         return mlen;
-    
     }
 
     public static void main(String[] args) {
         
         System.out.println(characterReplacement("ABAB", 2));
+        System.out.println(characterReplacement("AABABBA", 1));
     }
 }
