@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class ArrayIsSorted {
     
     static boolean isSorted(int[] arr,int n)
@@ -6,9 +8,21 @@ public class ArrayIsSorted {
         return (arr[n-1]>=arr[n-2]) && (isSorted(arr, n-1)); 
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws Exception
+    {        
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+         System.out.print("Enter array size: ");
+        int n = Integer.parseInt(br.readLine());
+
+
+        int[] arr= new int[n];
+        String[] s= br.readLine().trim().split("\\s+");
+
+        for(int i=0;i<s.length;i++)
+        {
+            arr[i]=Integer.parseInt(s[i]);
+        }
         
-        System.out.println(isSorted(new int[]{1,10,2,4,5,}, 5));
+        System.out.println("Is array sorted? "+ isSorted(arr, arr.length));
     }
 }
