@@ -43,17 +43,45 @@ public class SubSeqWithSum_K {
         return false;
     }
 
+    static int countSub(int[] arr,int k,int i,int sum)
+    {
+        if(arr.length==i)
+        {
+            return 0;
+        }
+
+        if(sum==k)
+        {
+            return 1;
+        }
+
+        int left=countSub(arr, k, i+1, sum+arr[i]);
+        int right=countSub(arr, k, i+1, sum);
+
+        return left+right;
+    }
+
      static public boolean checkSubsequenceSum(int[] arr, int k) {
         
         return check(arr,k,0,0);
     
     }  
+    static public int countSubans(int[] arr, int k) {
+        
+        return countSub(arr, k, 0, 0);
+    
+    }  
+    
     
     public static void main(String[] args) {
         
 
         System.out.println("T_1:-"+checkSubsequenceSum(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
         System.out.println("T_2:-"+checkSubsequenceSum(new int[]{2, 3, 5, 7, 9}, 100));
+
+        System.out.println("Count subSqs");
+          System.out.println("T_1:-"+countSubans(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
+        System.out.println("T_2:-"+countSubans(new int[]{2, 3, 5, 7, 9}, 100));
         
     }
     
